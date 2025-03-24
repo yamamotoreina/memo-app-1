@@ -1,12 +1,22 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, type TextStyle } from "react-native"
 
-const Hello = (): JSX.Element => {
+interface Props {
+  children: string; //型の定義
+  bang?: boolean;
+  style?: TextStyle
+}
+
+const Hello = (props: Props): JSX.Element => {
+  const { children, bang, style } = props
   return (
     <View>
-      <Text style={styles.text}>Hello</Text>
+      <Text style={[styles.text, style]}>
+        Hello {children}
+        {bang === true ? "!" : ""}
+      </Text>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   text: {

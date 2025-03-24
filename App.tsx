@@ -1,13 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Hello from './src/components/Hello';
+import { StatusBar } from 'expo-status-bar'
+import { StyleSheet, Text, View } from 'react-native'
+import Hello from './src/components/Hello'
 
 
 
 const App = (): JSX.Element => {
   return(
     <View style={styles.container}>
-      <Hello />
+      <Hello bang>World</Hello>
+      <Hello style={{fontSize:16}}>Wold</ Hello>
       <Text>Open up App.tex to start working on your app!!</Text>
       <StatusBar style="auto" />    
     </View>

@@ -1,11 +1,11 @@
-import { View, Text, ScrollView, StyleSheet } from 'react-native'
-import { Feather } from '@expo/vector-icons'
+import { View, Text, ScrollView, StyleSheet } from "react-native"
 
-import Header from '../../components/Header'
-import CircleButton from '../../components/CircleButton'
+import Header from "../../components/Header"
+import CircleButton from "../../components/CircleButton"
+import Icon from "../../components/Icon"
 
 const Detail = (): JSX.Element => {
-  return(
+  return (
     <View style={styles.container}>
       <Header />
       <View style={styles.memoHeader}>
@@ -14,18 +14,18 @@ const Detail = (): JSX.Element => {
       </View>
       <ScrollView style={styles.memoBody}>
         <Text style={styles.memoBodyText}>
-          買い物リスト 
-          書体やレイアウトなどを確認するために用います。
+          買い物リスト 書体やレイアウトなどを確認するために用います。
           本文用なので使い方を間違えると不自然に見えることもありますので要注意。
           カタカナ語が苦手な方は「組見本」と呼ぶとよいでしょう。なお、組見本の「組」とは文字組のことです。活字印刷時代の用語だったと思います。このダミーテキストは自由に改変することが出来ます。主に書籍やウェブページなどのデザインを作成する時によく使われます。書体やレイアウトなどを確認するために用います。
           ダミーテキストはダミー文書やダミー文章とも呼ばれることがあります。カタカナ語が苦手な方は「組見本」と呼ぶとよいでしょう。主に書籍やウェブページなどのデザインを作成する時によく使われます。これは正式な文章の代わりに入れて使うダミーテキストです。
-          買い物リスト  書体やレイアウトなどを確認するために用います。本文用なので使い方を間違えると不自然に見えることもありますので要注意。
+          買い物リスト
+          書体やレイアウトなどを確認するために用います。本文用なので使い方を間違えると不自然に見えることもありますので要注意。
           カタカナ語が苦手な方は「組見本」と呼ぶとよいでしょう。なお、組見本の「組」とは文字組のことです。活字印刷時代の用語だったと思います。このダミーテキストは自由に改変することが出来ます。主に書籍やウェブページなどのデザインを作成する時によく使われます。書体やレイアウトなどを確認するために用います。
           ダミーテキストはダミー文書やダミー文章とも呼ばれることがあります。カタカナ語が苦手な方は「組見本」と呼ぶとよいでしょう。主に書籍やウェブページなどのデザインを作成する時によく使われます。これは正式な文章の代わりに入れて使うダミーテキストです。
         </Text>
       </ScrollView>
-      <CircleButton style={{ top:140, bottom:'auto' }}>
-        <Feather name='plus' size={40}/>
+      <CircleButton style={{ top: 140, bottom: "auto" }}>
+        <Icon name="pencil1" size={40} color="ffffff" />
       </CircleButton>
     </View>
   )
@@ -34,23 +34,23 @@ const Detail = (): JSX.Element => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff'
+    backgroundColor: "#ffffff"
   },
   memoHeader: {
-    backgroundColor:'#467FD3',
+    backgroundColor: "#467FD3",
     height: 96,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingVertical: 24,
     paddingHorizontal: 19
   },
   memoTitle: {
-    color: '#ffffff',
+    color: "#ffffff",
     fontSize: 20,
     lineHeight: 32,
-    fontWeight: 'bold'
+    fontWeight: "bold"
   },
   memoDate: {
-    color: '#ffffff',
+    color: "#ffffff",
     fontSize: 12,
     lineHeight: 16
   },

@@ -3,16 +3,29 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from "react-native"
 import { useState } from "react"
 import { Link, router } from "expo-router"
+import { signInWithEmailAndPassword } from "firebase/auth"   
 
 import Button from "../../components/Button"
+import { auth } from "../../config"
 
-const handlePress = (): void => {
+const handlePress = (email: string, password: string): void => {
   //ログイン
-  router.replace("/memo/List") //router.replaceでバックできないようにしている履歴を残さないことで
+  signInWithEmailAndPassword(auth, email, password)//ここでsignInを使うことにより既存のアカウントでしかログインできなくなる
+    .then((userCredential) => {
+      //userCredentialはユーザー認証結果オブジェクトのこと
+      console.log(userCredential.user.uid)
+      router.replace("/memo/List") //router.replaceでバックできないようにしている履歴を残さないことで
+    })
+    .catch((error) => {
+      const { code, message } = error
+      console.log(code, message)
+      Alert.alert(message)
+    })
 }
 
 const LogIn = (): JSX.Element => {
@@ -41,15 +54,20 @@ const LogIn = (): JSX.Element => {
             setPassword(text)
           }}
           autoCapitalize="none"
-          secureTextEntry = {true}
+          secureTextEntry={true}
           placeholder="Password"
           textContentType="password"
         />
 
-        <Button label="Submit" onPress={handlePress} />
+        <Button
+          label="Submit"
+          onPress={() => {
+            handlePress(email, password)
+          }}
+        />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registered?</Text>
-          <Link href="/auth/sign_up" asChild>
+          <Link href="/auth/sign_up" asChild replace>
             <TouchableOpacity>
               <Text style={styles.footerLink}>Sing up here!</Text>
             </TouchableOpacity>

@@ -1,20 +1,60 @@
-import { View, Text, StyleSheet, TextInput } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity
+} from "react-native"
+import { Link, router } from "expo-router"
+import { useState } from "react"
 
-import  Header  from '../../components/Header'
-import  Button  from '../../components/Button'
+import Button from "../../components/Button"
 
-const LogIn = ():JSX.Element => {
-  return(
+const handlePress = (): void => {
+  //会員登録
+  router.push("/memo/List")
+}
+
+const LogIn = (): JSX.Element => {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  return (
     <View style={styles.container}>
-      <Header/>
       <View style={styles.inner}>
         <Text style={styles.title}>Sign Up</Text>
-        <TextInput style={styles.input} value='Email Address' />
-        <TextInput style={styles.input} value='Password' />
-        <Button label='Submit'/>
+
+        <TextInput
+          style={styles.input}
+          value={email}
+          onChangeText={(text) => {
+            setEmail(text)
+          }}
+          autoCapitalize="none"
+          keyboardType="email-address"
+          placeholder="Email Address"
+          textContentType="emailAddress"
+        />
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={(text) => {
+            setPassword(text)
+          }}
+          autoCapitalize="none"
+          secureTextEntry={true}
+          placeholder="Password"
+          textContentType="password"
+        />
+
+        <Button label="Submit" onPress={handlePress} />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registered?</Text>
-          <Text style={styles.footerLink}>Log in.</Text>
+          <Link href="/auth/log_in" asChild>
+            <TouchableOpacity>
+              <Text style={styles.footerLink}>Log in.</Text>
+            </TouchableOpacity>
+          </Link>
         </View>
       </View>
     </View>
@@ -24,40 +64,40 @@ const LogIn = ():JSX.Element => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F4F8'
+    backgroundColor: "#F0F4F8"
   },
-  inner:{
+  inner: {
     paddingVertical: 24,
     paddingHorizontal: 27
   },
   title: {
     fontSize: 24,
     lineHeight: 32,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 24
   },
   input: {
     borderWidth: 1,
-    borderColor: '#DDDDDD',
-    backgroundColor: '#ffffff',
+    borderColor: "#DDDDDD",
+    backgroundColor: "#ffffff",
     height: 48,
     padding: 8,
     fontSize: 16,
     marginBottom: 16
   },
   footer: {
-    flexDirection: 'row'
+    flexDirection: "row"
   },
   footerText: {
     fontSize: 14,
     lineHeight: 24,
     marginRight: 8,
-    color: '#000000'
+    color: "#000000"
   },
   footerLink: {
     fontSize: 14,
     lineHeight: 24,
-    color: '#467FD3'
+    color: "#467FD3"
   }
 })
 

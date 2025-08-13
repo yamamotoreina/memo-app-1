@@ -8,14 +8,16 @@ interface Props {
   memo: Memo
 }
 
-const MemoListItem = (props: Props): JSX.Element => {
+const MemoListItem = (props: Props): JSX.Element | null => {
   const { memo } = props
-  const dateString = memo.updatedAt.toDate().toLocaleString('ja-JP')
+  const { bodyText, updatedAt} = memo
+  if ( bodyText === null || updatedAt === null ) { return null }
+  const dateString =updatedAt.toDate().toLocaleString('ja-JP')
   return (
-    <Link href='/memo/Detail' asChild>
+    <Link href={{ pathname : '/memo/Detail', params: { id: memo.id }}} asChild>
       <TouchableOpacity style={styles.memoListItem}>
         <View>
-          <Text style={styles.memoListItemTitle}>{memo.bodyText}</Text>
+          <Text numberOfLines={1} style={styles.memoListItemTitle}>{bodyText}</Text>
           <Text style={styles.memoListItemDate}>{dateString}</Text>
         </View>
         <TouchableOpacity>

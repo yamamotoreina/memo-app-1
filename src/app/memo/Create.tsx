@@ -46,6 +46,7 @@ const Create = (): JSX.Element => {
         onPress={() => {
           handlePress(bodyText)
         }}
+        style={{ top:'auto', bottom: 40 }}
       >
         <Icon name="check" size={40} color="ffffff" />
       </CircleButton>

@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "recipe-memo",
-    "slug": "recipe-memo",
-    "scheme": "recipe-memo",
+    "name": "MemoApp",
+    "slug": "MemoApp",
+    "scheme": "MemoApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,12 +14,17 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "ドメイン名",
+      "buildNumber":"1.0.0" 
     },
     "android": {
+      "package":  "ドメイン名",
+      "versionCode": 1,
+      "permissions":[],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundImage": "./assets/adaptive-icon.png"
       }
     },
     "web": {

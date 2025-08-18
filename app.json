@@ -5,34 +5,31 @@
     "scheme": "MemoApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
+      "image": "assets/splash.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "ドメイン名",
-      "buildNumber":"1.0.0" 
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "package":  "ドメイン名",
+      "package": "ドメイン名",
       "versionCode": 1,
-      "permissions":[],
+      "permissions": [],
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundImage": "./assets/adaptive-icon.png"
+        "foregroundImage": "assets/icon_adaptive_foreground.png",
+        "backgroundImage": "assets/icon_adaptive_background.png"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-router",
-      "expo-font"
-    ]
+    "plugins": ["expo-router", "expo-font"]
   }
 }

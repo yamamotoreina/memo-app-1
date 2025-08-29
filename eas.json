@@ -1,5 +1,21 @@
 {
+  "cli": {
+    "version": ">= 16.17.4"
+  },
   "build": {
+    "development": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "env": {
+          "EXPO_GRADLE_VERSION": "7.6"
+        }
+      },
+      "ios": {
+        "simulator": true
+      }
+    },
     "production": {
       "env": {
         "EXPO_PUBLIC_FB_API_KEY": "AIzaSyClSvEq5QgRXr7ogeGmVOtPS7DL_p69HM4",
@@ -12,12 +28,16 @@
     },
     "preview": {
       "extends": "production",
+      "distribution": "internal" 
+    },
+    "internal": {
       "distribution": "internal",
-      "ios": {
-        "simulator": true
-      },
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "env": {
+          "EXPO_GRADLE_VERSION": "7.6"
+        }
       }
     }
   }

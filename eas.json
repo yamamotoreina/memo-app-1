@@ -7,7 +7,6 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk",
-        "gradleCommand": ":app:assembleRelease",
         "env": {
           "EXPO_GRADLE_VERSION": "7.6"
         }
@@ -34,7 +33,6 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk",
-        "gradleCommand": ":app:assembleRelease",
         "env": {
           "EXPO_GRADLE_VERSION": "7.6"
         }

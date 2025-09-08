@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Alert
 } from "react-native"
-import { useState } from "react"
+import { JSX, useState } from "react"
 import { Link, router } from "expo-router"
 import { signInWithEmailAndPassword } from "firebase/auth"   
 

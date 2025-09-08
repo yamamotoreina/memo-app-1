@@ -1,3 +1,4 @@
+import { JSX } from 'react'
 import { Text, TouchableOpacity, StyleSheet } from 'react-native'
 
 interface Props {

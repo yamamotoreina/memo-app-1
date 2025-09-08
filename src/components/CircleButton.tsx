@@ -1,3 +1,4 @@
+import { JSX } from "react"
 import { Text, StyleSheet, type ViewStyle, TouchableOpacity } from "react-native"
 
 interface Props {

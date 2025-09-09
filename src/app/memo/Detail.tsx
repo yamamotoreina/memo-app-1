@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, StyleSheet } from "react-native"
 import { router, useLocalSearchParams } from "expo-router"
 import { onSnapshot, doc } from "firebase/firestore"
-import { useState, useEffect } from "react"
+import { useState, useEffect, JSX } from "react"
 
 import CircleButton from "../../components/CircleButton"
 import Icon from "../../components/Icon"

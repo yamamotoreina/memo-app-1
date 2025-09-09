@@ -1,7 +1,7 @@
 import { View, StyleSheet, TextInput } from "react-native"
 import { router } from "expo-router"
 import { collection, addDoc, Timestamp } from "firebase/firestore"
-import { useState } from "react"
+import { JSX, useState } from "react"
 
 
 import KeyboardAvoidingView from "../../components/KeyboardAvoidingView"

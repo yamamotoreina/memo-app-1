@@ -14,13 +14,12 @@ Android 端末にコピーして実行するとインストールされます。
 &nbsp; ※ 「提供元不明のアプリ」を許可する必要があります。
 
 QR コード（スマホでスキャンしてインストール）
-![Android QR](./images/AndroidQR.png){ width=200px }
-
+![Android QR](./images/AndroidQR.png)
 2\. ios 版（Expo Go）
 
 Expo Go で開くとアプリを確認できます
 QR コードをスキャンしてください
-![IOS QR](./images/IosQR.png){ width=200px }
+![IOS QR](./images/IosQR.png)
 
 \## 使い方
 

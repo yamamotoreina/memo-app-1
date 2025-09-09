@@ -18,7 +18,7 @@
 
 &nbsp;  以下から APK をダウンロードしてインストールできます。
 
-&nbsp; https://drive.google.com/file/d/12Lu0L\_J6WrxEZo0YBmx6A29G6\_JdITU1/view?usp=drive\_link
+&nbsp; https:/drive.google.com/file/d/12Lu0L/_J6WrxEZo0YBmx6A29G6/_JdITU1/view?usp=drive/_link
 
 　　Android端末にコピーして実行するとインストールされます。  
 
@@ -30,7 +30,7 @@
 
 　```bash
 
-　https://github.com/yamamotoreina/memo-app-1.git　
+　https:/github.com/yamamotoreina/memo-app-1.git　
 　cd memo-app-1
 
   npm install
@@ -45,17 +45,17 @@
 
 
 1. アプリを開くとログイン画面が表示されます。
-   ! \[ログイン画面] (.\\images\\LogIn.png)
+   ! \[ログイン画面] (./images/LogIn.png)
 2. ログイン画面にあるsign\_upリンクを押すとアカウントを作成できます。
-   ! \[サインアップ画面] (.\\images\\SignUp.png)
+   ! \[サインアップ画面] (./images/SignUp.png)
 3. ログイン後メモの一覧画面が表示されます。
-   ! \[メモの一覧] (.\\images\\MemoList.png)
+   ! \[メモの一覧] (./images/MemoList.png)
 4. 右下の＋ボタンをクリックすると新規作成画面にうつります。
-   ! \[新規作成] (.\\images\\MemoCreateNew.png)
+   ! \[新規作成] (./images/MemoCreateNew.png)
 5. 作成後チェックボタンを押すと新規が作成されます。
-   ! \[新規作成後] (.\\images\\MemoListAdd.png)
+   ! \[新規作成後] (./images/MemoListAdd.png)
 6. 作成後のメモを編集するにはメモを開きペンシルボタンを押すと編集できます。
-   ! \[編集画面] (.\\images\\MemoDetail.png)
+   ! \[編集画面] (./images/MemoDetail.png)
 
 
 
@@ -83,8 +83,8 @@
 * Expo SDK-53
 * Javascript
 * ESLint
-* Firebase Authenticaton
-* Cloud Frebase
+* Firebase Authentication
+* Cloud Firebase
 * Figma
 * JDK-17
 * Gradle-7.6.5

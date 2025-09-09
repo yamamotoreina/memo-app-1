@@ -5,6 +5,7 @@ import { deleteDoc, doc } from "firebase/firestore"
 import Icon from "./Icon"
 import { type Memo } from "../../types/memo"
 import { auth, db } from "../config"
+import { JSX } from "react"
 
 interface Props {
   memo: Memo

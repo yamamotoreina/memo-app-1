@@ -3,6 +3,7 @@ import { signOut } from 'firebase/auth'
 
 import { auth } from '../config'
 import { router } from "expo-router"
+import { JSX } from "react"
 
 const handlePress = ():void => {
   signOut(auth)

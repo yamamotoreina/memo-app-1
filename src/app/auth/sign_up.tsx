@@ -7,7 +7,7 @@ import {
   Alert
 } from "react-native"
 import { Link, router } from "expo-router"
-import { useState } from "react"
+import { JSX, useState } from "react"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 
 import { auth } from "../../config"

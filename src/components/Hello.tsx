@@ -1,3 +1,4 @@
+import { JSX } from "react"
 import { View, Text, StyleSheet, type TextStyle } from "react-native"
 
 interface Props {

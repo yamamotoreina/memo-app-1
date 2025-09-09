@@ -1,6 +1,6 @@
 import { View, StyleSheet, FlatList } from "react-native"
 import { router, useNavigation } from 'expo-router'
-import { useEffect, useState } from "react"
+import { JSX, useEffect, useState } from "react"
 import { collection, onSnapshot, query, orderBy} from "firebase/firestore"
 
 import MemoListItem from "../../components/MemoListItem"

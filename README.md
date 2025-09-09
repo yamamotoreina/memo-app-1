@@ -9,7 +9,7 @@
 1\. Android アプリのインストール方法
 
 &nbsp; 以下から APK をダウンロードしてインストールできます。
-&nbsp; ![Android用インストールURL](https://drive.google.com/uc?export=view&id=12Lu0L_J6WrxEZo0YBmx6A29G6_JdITU1)
+&nbsp; [Android 用インストール URL](https://drive.google.com/uc?export=view&id=12Lu0L_J6WrxEZo0YBmx6A29G6_JdITU1)
 Android 端末にコピーして実行するとインストールされます。  
 &nbsp; ※ 「提供元不明のアプリ」を許可する必要があります。
 
@@ -21,14 +21,6 @@ QR コード（スマホでスキャンしてインストール）
 Expo Go で開くとアプリを確認できます
 QR コードをスキャンしてください
 ![IOS QR](./images/IosQR.png)
-
-3\. リポジトリをクローンして依存関係をインストールしてください（PC 方）
-
-```bash
-![クローンURL](https:/github.com/yamamotoreina/memo-app-1.git)　
-cd memo-app-1
-npm install
-npm start
 
 \## 使い方
 

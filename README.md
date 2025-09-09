@@ -45,17 +45,17 @@
 
 
 1. アプリを開くとログイン画面が表示されます。
-   ! \[ログイン画面] (./images/LogIn.png)
+   ![ログイン画面](./images/LogIn.png)
 2. ログイン画面にあるsign\_upリンクを押すとアカウントを作成できます。
-   ! \[サインアップ画面] (./images/SignUp.png)
+   ![サインアップ画面](./images/SignUp.png)
 3. ログイン後メモの一覧画面が表示されます。
-   ! \[メモの一覧] (./images/MemoList.png)
+   ![メモの一覧](./images/MemoList.png)
 4. 右下の＋ボタンをクリックすると新規作成画面にうつります。
-   ! \[新規作成] (./images/MemoCreateNew.png)
+   ![新規作成](./images/MemoCreateNew.png)
 5. 作成後チェックボタンを押すと新規が作成されます。
-   ! \[新規作成後] (./images/MemoListAdd.png)
+   ![新規作成後](./images/MemoListAdd.png)
 6. 作成後のメモを編集するにはメモを開きペンシルボタンを押すと編集できます。
-   ! \[編集画面] (./images/MemoDetail.png)
+   ![編集画面](./images/MemoDetail.png)
 
 
 

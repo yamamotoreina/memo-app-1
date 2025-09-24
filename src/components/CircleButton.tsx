@@ -1,5 +1,10 @@
 import { JSX } from "react"
-import { Text, StyleSheet, type ViewStyle, TouchableOpacity } from "react-native"
+import {
+  Text,
+  StyleSheet,
+  type ViewStyle,
+  TouchableOpacity
+} from "react-native"
 
 interface Props {
   children: JSX.Element
@@ -8,21 +13,20 @@ interface Props {
 }
 //?を付けた引数は値を渡しても渡さなくてもいい
 const CircleButton = (props: Props): JSX.Element => {
-  const { children , style ,onPress } = props
-  return(
+  const { children, style, onPress } = props
+  return (
     <TouchableOpacity onPress={onPress} style={[styles.circleButton, style]}>
-      <Text style={styles.circleButtonLabel}>{ children }</Text>
+      <Text style={styles.circleButtonLabel}>{children}</Text>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  
-  circleButton:{
+  circleButton: {
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor:"#467fd3",
+    backgroundColor: "#467fd3",
     justifyContent: "center",
     alignItems: "center",
     position: "absolute",
@@ -31,10 +35,10 @@ const styles = StyleSheet.create({
     shadowColor: "#000000",
     shadowOpacity: 0.25,
     shadowRadius: 8,
-    shadowOffset: {width: 0, height: 8},
+    shadowOffset: { width: 0, height: 8 },
     elevation: 8
   },
-  circleButtonLabel:{
+  circleButtonLabel: {
     color: "#ffffff",
     fontSize: 40,
     lineHeight: 38

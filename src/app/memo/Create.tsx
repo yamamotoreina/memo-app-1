@@ -8,10 +8,12 @@ import CircleButton from "../../components/CircleButton"
 import Icon from "../../components/Icon"
 import { db, auth } from "../../config"
 
-const handlePress = async (bodyText: string): Promise<void> => {
+//リトライ処理と保存中のボタンの無効化をするため再利用関数のため関数宣言に変更
+async function handlePress(bodyText: string) {
   if (auth.currentUser === null) {
     return
   }
+
   const ref = collection(db, `users/${auth.currentUser.uid}/memos`)
   //リトライ設定
   const retries = 3
@@ -24,14 +26,14 @@ const handlePress = async (bodyText: string): Promise<void> => {
         updatedAt: Timestamp.fromDate(new Date()) //時刻
       })
       console.log("success", docRef.id)
-      router.back() //前の画面に戻る
+      router.back()
       return //成功したので終了
-    } catch (error) {
+    } catch (error: unknown) {
       if (i === retries) {
         console.error("最終的に失敗", error)
         Alert.alert(
           "保存に失敗しました",
-          "ネットワークを確認して、もう一度お試しください。"
+          "パスを確認して、もう一度お試しください。"
         )
         return
       }
@@ -41,8 +43,10 @@ const handlePress = async (bodyText: string): Promise<void> => {
   }
 }
 
+//UIロジック
 const Create = (): JSX.Element => {
   const [bodyText, setBodyText] = useState("")
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View style={styles.inputContainer}>

@@ -1,51 +1,16 @@
-import { View, StyleSheet, TextInput, Alert } from "react-native"
-import { router } from "expo-router"
-import { collection, addDoc, Timestamp } from "firebase/firestore"
+import { View, StyleSheet, TextInput } from "react-native"
 import { JSX, useState } from "react"
 
 import KeyboardAvoidingView from "../../components/KeyboardAvoidingView"
 import CircleButton from "../../components/CircleButton"
 import Icon from "../../components/Icon"
-import { db, auth } from "../../config"
+import useSaveMemo from "../../useSaveMemo"
 
-//リトライ処理と保存中のボタンの無効化をするため再利用関数のため関数宣言に変更
-async function handlePress(bodyText: string) {
-  if (auth.currentUser === null) {
-    return
-  }
-
-  const ref = collection(db, `users/${auth.currentUser.uid}/memos`)
-  //リトライ設定
-  const retries = 3
-  const delay = 1000
-
-  for (let i = 0; i <= retries; i++) {
-    try {
-      const docRef = await addDoc(ref, {
-        bodyText, //textInput
-        updatedAt: Timestamp.fromDate(new Date()) //時刻
-      })
-      console.log("success", docRef.id)
-      router.back()
-      return //成功したので終了
-    } catch (error: unknown) {
-      if (i === retries) {
-        console.error("最終的に失敗", error)
-        Alert.alert(
-          "保存に失敗しました",
-          "パスを確認して、もう一度お試しください。"
-        )
-        return
-      }
-      console.warn(`Retrying...(${i + 1}/${retries})`)
-      await new Promise((r) => setTimeout(r, delay * (i + 1))) //バックオフ
-    }
-  }
-}
 
 //UIロジック
 const Create = (): JSX.Element => {
   const [bodyText, setBodyText] = useState("")
+  const { handlePress, isSaving } = useSaveMemo()
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -62,9 +27,8 @@ const Create = (): JSX.Element => {
         />
       </View>
       <CircleButton
-        onPress={() => {
-          handlePress(bodyText)
-        }}
+        onPress={() => handlePress(bodyText)}
+        disabled={isSaving} // ← 保存中は押せない
         style={{ top: "auto", bottom: 40 }}
       >
         <Icon name="check" size={40} color="ffffff" />

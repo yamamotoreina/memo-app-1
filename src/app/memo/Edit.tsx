@@ -1,50 +1,19 @@
 import { View, TextInput, StyleSheet, Alert } from "react-native"
-import { router, useLocalSearchParams } from "expo-router"
+import {  useLocalSearchParams } from "expo-router"
 import { useState, useEffect, JSX } from "react"
-import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore"
+import { doc, getDoc } from "firebase/firestore"
 
 import KeyboardAvoidingView from "../../components/KeyboardAvoidingView"
 import CircleButton from "../../components/CircleButton"
 import Icon from "../../components/Icon"
 import { auth, db } from "../../config"
-
-//リトライ処理と保存中のボタンの無効化をするため再利用関数のため関数宣言に変更
-async function handlePress(id: string, bodyText: string) {
-  if (auth.currentUser === null) {
-    return
-  }
-  const ref = doc(db, `users/${auth.currentUser.uid}/memos`, id)
-  const retries = 3
-  const delay = 1000
-
-  for (let i = 0; i <= retries; i++) {
-    try {
-      const docRef = await setDoc(ref, {
-        bodyText, //textInput
-        updatedAt: Timestamp.fromDate(new Date()) //時刻
-      })
-      console.log("success", docRef)
-
-      router.back()
-      return //成功したので終了
-    } catch (error: unknown) {
-      if (i === retries) {
-        console.error("最終的に失敗", error)
-        Alert.alert(
-          "更新に失敗しました",
-          "パスを確認して、もう一度お試しください。"
-        )
-        return
-      }
-      console.warn(`Retrying...(${i + 1}/${retries})`)
-      await new Promise((r) => setTimeout(r, delay * (i + 1))) //バックオフ
-    }
-  }
-}
+import useSaveMemo from "../../useSaveMemo"
 
 //UIロジック
 const Edit = (): JSX.Element => {
   const id = String(useLocalSearchParams().id)
+ const { handlePress, isSaving } = useSaveMemo()
+
   const [bodyText, setBodyText] = useState("")
   useEffect(() => {
     if (auth.currentUser === null) {
@@ -79,9 +48,10 @@ const Edit = (): JSX.Element => {
         />
       </View>
       <CircleButton
-        onPress={() => {
-          handlePress(id, bodyText)
-        }}
+        onPress={() => handlePress(bodyText, id)} //idで編集内容を取得
+        disabled={isSaving} // ← 保存中は押せない
+        style={{ top: "auto", bottom: 40 }}
+
       >
         <Icon name="check" size={40} color="ffffff" />
       </CircleButton>

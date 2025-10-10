@@ -10,12 +10,22 @@ interface Props {
   children: JSX.Element
   style?: ViewStyle
   onPress?: () => void
+  disabled?: boolean
 }
 //?を付けた引数は値を渡しても渡さなくてもいい
 const CircleButton = (props: Props): JSX.Element => {
-  const { children, style, onPress } = props
+  const { children, style, onPress, disabled = false } = props
   return (
-    <TouchableOpacity onPress={onPress} style={[styles.circleButton, style]}>
+    <TouchableOpacity
+      onPress={onPress}
+      disabled={disabled}
+      style={[
+        styles.circleButton,
+        style,
+        disabled && { opacity: 0.5 } //無効時の見た目
+      ]}
+      activeOpacity={disabled ? 1 : 0.7} //無効時のエフェクトを消す
+    >
       <Text style={styles.circleButtonLabel}>{children}</Text>
     </TouchableOpacity>
   )
